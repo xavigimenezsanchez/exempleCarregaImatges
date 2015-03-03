@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/metro-bootstrap.css">
+        <link href="css/iconFont.css" rel="stylesheet">
+        <script src="js/jquery/jquery.min.js"></script>
+        <script src="js/jquery/jquery.widget.min.js"></script>
+        <script src="js/metro/metro.min.js"></script>
+        <script type="text/javascript" src="ng/angular.js"></script>
+        <script type="text/javascript" src="ng/angular-file-upload.min.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+    </head>
+    <body class="metro" ng-app="appImatges">
+        <header class="bg-dark">
+            <nav class="navigation-bar">
+                <nav class="navigation-bar-content container">
+                    <div class="element">
+                        <span class="icon-grid-view"></span>&nbspAPI Imatges
+                    </div>
+ 
+                    <span class="element-divider"></span>
+                    <a class="element brand" href="/">Carregar Imatges</a>
+                    <span class="element-divider"></span>
+                    <a class="element brand" href="/llistat">Veure Imatges</a>
+                    <span class="element-divider"></span>
+                    <span class="element-divider place-right"></span>
+                    <button class="element image-button image-left place-right">
+                        Xavi Giménez
+                        <img src="https://secure.gravatar.com/avatar/aaa926303d1848133e6e02bad592647c?s=32&d=retro"/>
+                    </button>
+                </nav>
+            </nav>
+        </header>
+        <br/>
+    <div class="container">
+        <div class="grid">
+      <div class="row"> 
+        <div class="offset4 span8 ">
+            <div ng-controller="carregarImatgeCtrl">
+                <fieldset>
+                    <legend>Afeix una imatge a la Base de dades</legend>
+                    <label>Nom de la imatge</label>
+                    <div class="input-control text" data-role="input-control">
+                        <input type="text" placeholder="type text" name="titol" ng-model="titol">
+                        <button class="btn-clear" tabindex="-1" type="button"></button>
+                    </div>
+                    <label>Descripció de la imatge</label>
+                    <div class="input-control textarea" data-role="input-control" >
+                        <textarea name="descripcio" ng-model="descripcio"></textarea>
+                    </div>
+                    <div class="input-control file">
+                        
+                        <input type="file" nv-file-select uploader="uploader"/>
+                        <button class="btn-file"></button>
+                    </div>
+                     <ul>
+            <li ng-repeat="item in uploader.queue">
+                Name: <span ng-bind="item.file.name"></span><br/>
+                <button ng-click="item.upload()">upload</button>
+            </li>
+        </ul>
+                </fieldset>
+                
+            </div>
+            
+
+        </div>
+      </div>
+     </div>
+    </div>
+        
+    </body>
+</html>
